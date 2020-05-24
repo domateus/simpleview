@@ -1,22 +1,22 @@
 const { app, BrowserWindow, globalShortcut } = require('electron')
 const config = require('./config')
 
-let win
+let win = null;
 
 function createWindow () {
   // Cria uma janela de navegação.
   win = new BrowserWindow({
     width: 800,
     height: 600,
-    alwaysOnTop: true,
     titleBarStyle: 'hidden',
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
   // and load the index.html of the app.
-  win.loadFile(config.url)
+  win.loadURL(config.url)
 }
 
 function toggleDevTools(){
